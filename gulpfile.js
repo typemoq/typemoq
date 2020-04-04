@@ -50,14 +50,14 @@ var srcOpts = {
 		return result;
 	},
 	outJsPath: tempDir + '/src' + '/js',
-	outJsFile: 'typemoq.js',
-	outJsMapFile: 'typemoq.js.map',
+	outJsFile: 'typemoq-continued.js',
+	outJsMapFile: 'typemoq-continued.js.map',
 	outJsMapFullPath: function () {
 		var result = fullPath(this.outJsPath, this.outJsMapFile);
 		return result;
 	},
 	outDefPath: tempDir + '/src' + '/dts',
-	outDefFile: 'typemoq.d.ts',
+	outDefFile: 'typemoq-continued.d.ts',
 	outDefFullPath: function () {
 		var result = fullPath(this.outDefPath, this.outDefFile);
 		return result;
@@ -105,17 +105,17 @@ gulp.task('compile:src', function () {
 
 gulp.task('dts-bundle:src', function () {
 	return dts.bundle({
-			name: 'typemoq-dts-bundle',
-			main: srcOpts.outDefPath + '/typemoq.d.ts',
+			name: 'typemoq-continued-dts-bundle',
+			main: srcOpts.outDefPath + '/typemoq-continued.d.ts',
 			emitOnIncludedFileNotFound: true,
 			emitOnNoIncludedFileNotFound: true
 		});
 });
 
 gulp.task('copy-dts-bundle:src', ['dts-bundle:src'], function () {
-	return gulp.src([srcOpts.outDefPath + '/typemoq-dts-bundle.d.ts'])
-		.pipe($.replace('typemoq-dts-bundle', 'typemoq'))
-		.pipe($.rename('typemoq.d.ts'))
+	return gulp.src([srcOpts.outDefPath + '/typemoq-continued-dts-bundle.d.ts'])
+		.pipe($.replace('typemoq-continued-dts-bundle', 'typemoq-continued'))
+		.pipe($.rename('typemoq-continued.d.ts'))
 		.pipe(gulp.dest(srcOpts.outBundlePath))
 		.pipe($.size());
 });
@@ -124,9 +124,9 @@ gulp.task('rollup:src', function () {
 	return runRollup(
 		srcOpts.outJsPath + '/**/*.js',
 		{
-			entry: srcOpts.outJsPath + '/typemoq.js',
+			entry: srcOpts.outJsPath + '/typemoq-continued.js',
 			useStrict: false,
-			moduleName: 'TypeMoq',
+			moduleName: 'TypeMoq-Continued',
 			globals: {
 				'circular-json': 'CircularJSON',
 				lodash: '_'
@@ -150,9 +150,9 @@ gulp.task('rollup:test', function () {
 		{
 			entry: [ testOpts.outJsPath + '/Mock.test.js', testOpts.outJsPath + '/GlobalMock.test.js' ],
 			useStrict: true,
-			moduleName: 'TypeMoqTests',
+			moduleName: 'TypeMoqContinuedTests',
 			globals: {
-				typemoq: 'TypeMoq',
+				typemoq: 'TypeMoq-Continued',
 				chai: 'chai',
 				lodash: '_'
   			}
@@ -175,9 +175,9 @@ gulp.task('rollup:test.es6', function () {
 		{
 			entry: [ testES6Opts.outJsPath + '/Mock.test.js', testES6Opts.outJsPath + '/GlobalMock.test.js' ],
 			useStrict: true,
-			moduleName: 'TypeMoqTests',
+			moduleName: 'TypeMoq-ContinuedTests',
 			globals: {
-				typemoq: 'TypeMoq',
+				typemoq: 'TypeMoq-Continued',
 				chai: 'chai',
 				lodash: '_'
   			}
@@ -252,7 +252,7 @@ gulp.task('2dist', function () {
 gulp.task('minify', ['2dist'], function () {
 	return gulp.src(srcOpts.outJsBundleFullPath())
 		.pipe($.uglify())
-		.pipe($.rename('typemoq-min.js'))
+		.pipe($.rename('typemoq-continued-min.js'))
 		.pipe(gulp.dest(distDir))
 		.pipe($.size());
 });

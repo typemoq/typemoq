@@ -9,7 +9,7 @@
 		files: [
 			'./node_modules/circular-json/build/circular-json.js',
 			'./node_modules/lodash/lodash.js',
-			'./.tmp/src/typemoq.js',
+			'./.tmp/src/typemoq-continued.js',
 			'./.tmp/test/Mock.test.js',
 			'./.tmp/test/GlobalMock.test.js'],
 

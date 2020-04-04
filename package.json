@@ -4,8 +4,8 @@
   "description": "A simple mocking library for TypeScript. This is a community fork created in florinn's absence",
   "author": "Florin Nitoi <florin.nitoi@gmail.com>",
   "license": "MIT",
-  "main": "dist/typemoq.js",
-  "typings": "dist/typemoq.d.ts",
+  "main": "dist/typemoq-continued.js",
+  "typings": "dist/typemoq-continued.d.ts",
   "files": [
     "dist",
     "build",
