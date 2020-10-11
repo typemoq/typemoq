@@ -1,4 +1,4 @@
-TypeMoq (Continued) - Community Fork [![build badge](https://travis-ci.com/typemoq/typemoq.svg?branch=master)](https://travis-ci.com/typemoq/typemoq.svg?branch=master)
+TypeMoq (Continued) - Community Fork [![build badge](https://travis-ci.com/typemoq/typemoq-continued.svg?branch=master)](https://travis-ci.com/typemoq/typemoq-continued.svg?branch=master)
 ===================
 This is a fork of the original [Typemoq](https://github.com/florinn/typemoq) created by [florinn](https://github.com/florinn). In their absence from Github, I encourage any pull requests and issues to be added here. Should florinn ever return to Github then this repo can be merged with the original and retired.
 <hr/>
@@ -34,8 +34,8 @@ PM> Install-Package typemoq
 
 The distribution directory should contain:
 
-* *Compiled JavaScript:* `typemoq.js` and its minified version `typemoq-min.js`
-* *TypeScript definitions:* `typemoq.d.ts`
+* *Compiled JavaScript:* `typemoq-continued.js` and its minified version `typemoq-continued-min.js`
+* *TypeScript definitions:* `typemoq-continued.d.ts`
 
 ###### Development version
 
@@ -49,14 +49,14 @@ npm install https://github.com/typemoq/typemoq-continued
 ###### TypeScript 1.6 and later
 
 ```typescript
-import * as TypeMoq from "typemoq";
+import * as TypeMoq from "typemoq-continued";
 ```
 
 ###### TypeScript pre 1.6
 
 ```typescript
-/// <reference path="./node_modules/typemoq/dist/typemoq.d.ts" />
-TypeMoq = require("typemoq");
+/// <reference path="./node_modules/typemoq-continued/dist/typemoq-continued.d.ts" />
+TypeMoq = require("typemoq-continued");
 ```
 
 
@@ -64,16 +64,16 @@ TypeMoq = require("typemoq");
 
 Include at the top of your script file:
 ```typescript
-/// <reference path="./node_modules/typemoq/dist/typemoq.d.ts" />
-import * as TypeMoq from "typemoq";
+/// <reference path="./node_modules/typemoq-continued/dist/typemoq-continued.d.ts" />
+import * as TypeMoq from "typemoq-continued";
 ```
 
-TypeMoq requires some dependencies to run, so make sure to include them in your page before `typemoq.js`:
+TypeMoq requires some dependencies to run, so make sure to include them in your page before `typemoq-continued.js`:
 
 ```html
 <script src="https://unpkg.com/circular-json/build/circular-json"></script>
 <script src="https://unpkg.com/lodash"></script>
-<script src="https://unpkg.com/typemoq"></script>
+<script src="https://unpkg.com/typemoq-continued"></script>
 ```
 
 Also in your `tsconfig.json` you need to set the module target as `UMD`:
@@ -1003,4 +1003,4 @@ Inside the scope of a TypeMoq.GlobalScope, when constructing objects from global
 
 ## License
 
-[MIT](https://github.com/florinn/typemoq/blob/master/LICENSE)
+[MIT](https://github.com/typemoq/typemoq-continued/blob/master/LICENSE)
